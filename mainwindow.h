@@ -19,7 +19,7 @@ class MainWindow : public QMainWindow
   private:
   Ui::MainWindow *ui;
   QTimer *timer;
-  int time;
+  int ms, s, m;
 
   private slots:
   void TimerSlot();
