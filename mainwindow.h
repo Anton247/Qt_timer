@@ -13,15 +13,18 @@ class MainWindow : public QMainWindow
   Q_OBJECT
 
   public:
-  MainWindow(QWidget *parent = nullptr);
-  ~MainWindow();
+    MainWindow(QWidget *parent = nullptr);
+    ~MainWindow();
 
   private:
-  Ui::MainWindow *ui;
-  QTimer *timer;
-  int ms, s, m;
+    Ui::MainWindow *ui;
+    QTimer *timer;
+    int ms, s, m;
+    bool flag = true;
 
   private slots:
-  void TimerSlot();
+    void TimerSlot();
+    void on_pushButton_clicked();
+    void on_pushButton_2_clicked();
 };
 #endif // MAINWINDOW_H

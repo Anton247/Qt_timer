@@ -11,7 +11,9 @@ MainWindow::MainWindow(QWidget *parent)
   m = 0;
   timer = new QTimer(this);
   connect(timer, SIGNAL(timeout()), this, SLOT(TimerSlot()));
-  timer->start(1);
+
+  ui->pushButton->setText("СТАРТ");
+  ui->pushButton_2->setText("СБРОС");
 }
 
 MainWindow::~MainWindow()
@@ -34,3 +36,29 @@ void MainWindow::TimerSlot()
   ui->label_2->setText(QString::number(s));
   ui->label_3->setText( ":" + QString::number(ms));
 }
+
+void MainWindow::on_pushButton_clicked()
+{
+  flag = !flag;
+  if(flag){
+    ui->pushButton->setText("СТАРТ");
+    timer->stop();
+  }
+  else{
+    ui->pushButton->setText("СТОП");
+    timer->start(1);
+  }
+}
+
+
+void MainWindow::on_pushButton_2_clicked()
+{
+  ms = 0;
+  s = 0;
+  m = 0;
+
+  ui->label->setText(QString::number(m) + ":");
+  ui->label_2->setText(QString::number(s));
+  ui->label_3->setText( ":" + QString::number(ms));
+}
+
